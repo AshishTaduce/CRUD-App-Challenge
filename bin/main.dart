@@ -1,10 +1,34 @@
+import 'dart:io';
 
-void main(){
+void main() {
   List<String> names = ["Kimiko", "Raj", "Anu", "Paul"];
+  String options = 'a';
+  String input; //= var line = stdin.readLineSync();
 
 // Write a program to allow user to modify the given list as shown below.
 // Add Student, remove student and stop the program
 
+  while (options != 'e') {
+    print(names);
+
+    print('(a)dd or (r)emove a student, or (e)xit?');
+    options = stdin.readLineSync();
+
+    if (options == 'a') {
+      print('What is the name of the student you want to add?');
+      input = stdin.readLineSync();
+      names.add(input);
+    } else if (options == 'r') {
+      print('What is the name of the student you want to remove?');
+      input = stdin.readLineSync();
+      names.remove(input);
+    } else if (options != 'e') {
+      print('Enter correct option');
+      print(names);
+      print('(a)dd or (r)emove a student, or (e)xit?');
+      options = stdin.readLineSync();
+    }
+  }
 }
 
 //[Kimiko, Raj, Anu, Paul]
